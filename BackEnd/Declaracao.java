@@ -20,7 +20,7 @@ public class Declaracao {
 	}
 	
 	public String getAll() {
-		return "o que retornar no getall? não seriam as respostas? não estaria faltando um atributo aqui?";
+		return "";
 	}
 	
 	public void setDeclaracaoID(int id_declaracao) {

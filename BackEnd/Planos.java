@@ -35,7 +35,7 @@ public class Planos {
 	}
 	
 	public void setNomePlano(String nm_plano) {
-		this.nm_plano = nm_plano;
+		this.nm_plano = nm_plano.toUpperCase();
 	}
 	
 	public String getNomePlano() {

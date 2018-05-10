@@ -29,7 +29,7 @@ public class PerguntaSecreta {
 	}
 	
 	public void setQuestao(String pergunta) {
-		this.pergunta = pergunta;
+		this.pergunta = pergunta.toUpperCase();
 	}
 	
 	public String getQuestao() {

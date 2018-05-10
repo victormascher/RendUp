@@ -63,9 +63,6 @@ public class Usuario {
 	}
 
 	public void setEmail(String email) {
-		if(email.indexOf("@") < 0 || email.indexOf(".") < 0) {
-			
-		}
 		this.email = email.toLowerCase();
 	}
 	
@@ -128,5 +125,36 @@ public class Usuario {
 	
 	public String getRespostaSecreta() {
 		return respostaSecreta;
+	}
+	
+	public boolean verificaSenha(String senha){
+				
+		if(!(senha.matches("\\d+"))){
+			System.out.println("Senha não contem números");
+			return false;
+		}
+		if(!(senha.matches("[A-Z]"))){
+			System.out.println("Senha deve contar no minimo uma letra maiuscula");
+			return false;
+		}
+		if(!(senha.length()>=8 && senha.length() <= 16)){
+			System.out.println("Senha deve conter no mínimo 8 e no maximo 18 caracteres");
+			return false;
+		}
+		if(!(senha.matches(("[!#$%&'()*+,-./:;?@[\\\\\\]_`{|}~]]")))){
+			System.out.println("Senha deve conter no minimo 1 caracter especial");	
+			return false;	
+		}
+		
+		return true;
+	}
+	
+	public boolean verificaEmail(String email) {
+		
+		if(!(email.matches("^[_A-Za-z0-9-\\\\+]+(\\\\.[_A-Za-z0-9-]+)@\" + \"[A-Za-z0-9-]+(\\\\.[A-Za-z0-9]+)(\\\\.[A-Za-z]{2,})$"))) {
+			System.out.println("E-mail inválido.");
+			return false;
+		}
+		return true;
 	}
 }
