@@ -3,40 +3,45 @@ import java.util.Date;
 
 public class Declaracao {
 	
-	private int id_declaracao;
-	private Date dt_resposta = new Date();
+	private int idDeclaracao;
+	private Date dtResposta = new Date();
 	private Usuario usuario;
-	
+	private String respostas;
+
 	public Declaracao() {}
 	
-	public Declaracao(int id_declaracao, Date dt_resposta, Usuario usuario) {
-		setAll(id_declaracao, dt_resposta, usuario);
+	public Declaracao(int idDeclaracao, Date dtResposta, Usuario usuario, String respostas) {
+		setAll(idDeclaracao, dtResposta, usuario, respostas);
 	}
 	
-	public void setAll(int id_declaracao, Date dt_resposta, Usuario usuario) {
-		setDeclaracaoID(id_declaracao);
-		setDataResposta(dt_resposta);
+	public void setAll(int idDeclaracao, Date dtResposta, Usuario usuario, String respostas) {
+		setIdDeclaracao(idDeclaracao);
+		setDataResposta(dtResposta);
 		setUsuario(usuario);
+		setResposta(respostas);
 	}
 	
 	public String getAll() {
-		return "";
+		return "O ID da sua declaração é: " + idDeclaracao + "\n" +
+				"Data da resposta: " + dtResposta + "\n" +
+				"Usuário:" + usuario + "\n" +
+				"Respostas:" + respostas;
 	}
 	
-	public void setDeclaracaoID(int id_declaracao) {
-		this.id_declaracao = id_declaracao;
+	public void setIdDeclaracao(int idDeclaracao) {
+		this.idDeclaracao = idDeclaracao;
 	}
 	
-	public int getDeclaracaoID() {
-		return id_declaracao;
+	public int getIdDeclaracao() {
+		return idDeclaracao;
 	}
 	
-	public void setDataResposta(Date dt_resposta) {
-		this.dt_resposta = dt_resposta;
+	public void setDataResposta(Date dtResposta) {
+		this.dtResposta = dtResposta;
 	}
 	
 	public Date getDataResposta() {
-		return dt_resposta;
+		return dtResposta;
 	}
 	
 	public void setUsuario(Usuario usuario) {
@@ -46,5 +51,14 @@ public class Declaracao {
 	public Usuario getUsuario() {
 		return usuario;
 	}
+	
+	public void setResposta(String respostas) {
+		this.respostas = respostas;
+	}
+	
+	public String getResposta() {
+		return respostas;
+	}
+	
 
 }

@@ -4,54 +4,55 @@ import java.util.Date;
 
 public class Compra {
 	
-	private int id_compra;
-	private Date dt_compra = new Date();
+	private int idCompra;
+	private Date dtCompra = new Date();
 	private boolean status;
 	private Usuario usuario;
 	private Planos plano;
 	
 	public Compra() {}
 	
-	public Compra(int id_compra, Date dt_compra, boolean status, Usuario usuario, Planos plano) {
-		setAll(id_compra, dt_compra, status, usuario, plano);
+	public Compra(int idCompra, Date dtCompra, boolean status, Usuario usuario, Planos plano) {
+		setAll(idCompra, dtCompra, status, usuario, plano);
 	}
 	
-	public void setAll(int id_compra, Date dt_compra, boolean status, Usuario usuario, Planos plano) {
-		setCompraID(id_compra) ;
-		setDataCompra(dt_compra); 
+	public void setAll(int idCompra, Date dtCompra, boolean status, Usuario usuario, Planos plano) {
+		setIdCompra(idCompra) ;
+		setDataCompra(dtCompra); 
 		setStatus(status);
 		setUsuario(usuario); 
 		setPlano(plano);
 	}
 	
 	public String getAll() {
-		return "Data da compra: " + dt_compra + "\n" +
+		return "ID da sua compra: " + idCompra + "\n" +
+				"Data da compra: " + dtCompra + "\n" +
 				"Status: " + status + "\n" +
 				"Usuario: " + usuario + "\n" +
 				"Plano: " + plano;
 	}
 	
-	public void setCompraID(int id_compra) {
-		this.id_compra = id_compra;
+	public void setIdCompra(int idCompra) {
+		this.idCompra = idCompra;
 	}
 	
-	public int getCompraID() {
-		return id_compra;
+	public int getIdCompra() {
+		return idCompra;
 	}
 	
-	public void setDataCompra(Date dt_compra) {
-		this.dt_compra = dt_compra;
+	public void setDataCompra(Date dtCompra) {
+		this.dtCompra = dtCompra;
 	}
 	
 	public Date getDataCompra() {
-		return dt_compra;
+		return dtCompra;
 	}
-	
+
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
 	
-	public boolean getStatus() {
+	public boolean isConfirmado() {
 		return status;
 	}
 	

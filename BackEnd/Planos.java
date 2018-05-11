@@ -2,44 +2,44 @@ package br.com.fiap.beans;
 
 public class Planos {
 	
-	private int id_plano;
-	private String nm_plano;
+	private int idPlano;
+	private String nomePlano;
 	private String descricao;
 	private float valor;
 	
 	public Planos() {}
 	
-	public Planos(int id_plano, String nm_plano, String descricao, float valor) {
-		setAll(id_plano, nm_plano, descricao, valor);
+	public Planos(int idPlano, String nomePlano, String descricao, float valor) {
+		setAll(idPlano, nomePlano, descricao, valor);
 	}
 	
-	public void setAll(int id_plano, String nm_plano, String descricao, float valor) {
-		setPlanoID(id_plano);
-		setNomePlano(nm_plano);
+	public void setAll(int idPlano, String nomePlano, String descricao, float valor) {
+		setIdPlano(idPlano);
+		setNomePlano(nomePlano);
 		setDescricao(descricao);
 		setValor(valor);
 	}
 	
 	public String getAll() {
-		return "Plano: " + nm_plano + "\n" +
+		return "Plano: " + nomePlano + "\n" +
 				"Descrição: " + descricao  + "\n" +
 				"Valor: " + valor;
 	}
 	
-	public void setPlanoID(int id_plano) {
-		this.id_plano = id_plano;
+	public void setIdPlano(int idPlano) {
+		this.idPlano = idPlano;
 	}
 	
-	public int getPlanoID() {
-		return id_plano;
+	public int getIdPlano() {
+		return idPlano;
 	}
 	
-	public void setNomePlano(String nm_plano) {
-		this.nm_plano = nm_plano.toUpperCase();
+	public void setNomePlano(String nomePlano) {
+		this.nomePlano = nomePlano.toUpperCase();
 	}
 	
 	public String getNomePlano() {
-		return nm_plano;
+		return nomePlano;
 	}
 	
 	public void setDescricao(String descricao) {
