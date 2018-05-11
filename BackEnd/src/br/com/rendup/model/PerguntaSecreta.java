@@ -1,4 +1,4 @@
-package br.com.fiap.beans;
+package br.com.rendup.model;
 
 public class PerguntaSecreta {
 	
