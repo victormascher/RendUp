@@ -1,5 +1,6 @@
-package br.com.fiap.beans;
+package br.com.rendup.model;
 import java.util.Date;
+import java.util.UUID;
 
 public class Usuario {
 	
@@ -8,28 +9,26 @@ public class Usuario {
 	private String email;
 	private String senha;
 	private String cpf;
-	private long rg;
+	private String rg;
 	private Date dtNascimento = new Date();
-	private String token;
 	private PerguntaSecreta perguntaSecreta;
 	private String respostaSecreta;
 	long guardaCPF[] = new long[11];
 	
 	public Usuario() {}
 	
-	public Usuario(String idUser, String nome, String email, String senha, String cpf, long rg, Date dtNascimento, String token, PerguntaSecreta perguntaSecreta, String respostaSecreta) {
-		setAll(idUser, nome, email, senha, cpf, rg, dtNascimento, token, perguntaSecreta, respostaSecreta);
+	public Usuario(String idUser, String nome, String email, String senha, String cpf, String rg, Date dtNascimento, PerguntaSecreta perguntaSecreta, String respostaSecreta) {
+		setAll(idUser, nome, email, senha, cpf, rg, dtNascimento, perguntaSecreta, respostaSecreta);
 	}
 	
-	public void setAll(String idUser, String nome, String email, String senha, String cpf, long rg, Date dtNascimento, String token, PerguntaSecreta perguntaSecreta, String respostaSecreta) {
+	public void setAll(String idUser, String nome, String email, String senha, String cpf, String rg, Date dtNascimento, PerguntaSecreta perguntaSecreta, String respostaSecreta) {
 		setIdUser(idUser);
 		setNome(nome);
 		setEmail(email);
 		setSenha(senha);
 		setCPF(cpf);
 		setRG(rg);
-		setDataNascimento(dtNascimento);
-		setToken(token);
+		setDataNascimento(dtNascimento);;
 		setPerguntaSecreta(perguntaSecreta);
 		setRespostaSecreta(respostaSecreta);
 	}
@@ -41,14 +40,17 @@ public class Usuario {
 				"Senha:" + senha + "\n" +
 				"CPF: " + cpf +"\n" +
 				"RG: " + rg  + "\n" +
-				"Data de Nascimento: " + dtNascimento  + "\n" +
-				"Token de Confirmação:" + token  + "\n" +
+				"Data de Nascimento: " + dtNascimento  + "\n"  +
 				"Pergunta Secreta: " + perguntaSecreta + "\n" +
 				"Resposta da Pergunta Secreta: " +respostaSecreta;
 	}
 	
 	public void setIdUser(String idUser) {
-		this.idUser = idUser;
+		if(idUser != "" ) {
+			this.idUser = idUser;			
+		}else {
+			System.out.println("Id invalido");
+		}
 	}
 	
 	public String getIdUser() {
@@ -56,7 +58,11 @@ public class Usuario {
 	}
 	
 	public void setNome(String nome) {
-		this.nome = nome.toUpperCase();
+		if(nome != "") {
+			this.nome = nome.toUpperCase();			
+		}else {
+			System.out.println("Nome invalido");
+		}
 	}
 
 	public String getNome() {
@@ -64,7 +70,12 @@ public class Usuario {
 	}
 
 	public void setEmail(String email) {
+		if(verificaEmail(email) != true) {
+			System.out.println("Email invalido");
+			return;
+		}
 		this.email = email.toLowerCase();
+	
 	}
 	
 	public String getEmail() {
@@ -73,7 +84,9 @@ public class Usuario {
 	
 	public void setSenha(String senha) {
 		if(verificaSenha(senha) == false) {
-			System.out.println("Erro.");
+			System.out.println("Senha deve conter de 8 a 16 digitos com no minimo um caracter"
+					+ "especial, letra maiucula e numero");
+			return;
 		}		
 		this.senha = senha;
 	}
@@ -84,7 +97,8 @@ public class Usuario {
 	
 	public void setCPF(String cpf) {
 		if(validaCPF(cpf) == false) {
-			System.out.println("Erro.");
+			System.out.println("Cpf inválido");
+			return;
 		}
 		this.cpf = cpf;
 	}
@@ -93,11 +107,15 @@ public class Usuario {
 		return cpf;
 	}
 	
-	public void setRG(long rg) {
+	public void setRG(String rg) {
+		if(verificaRg(rg) != true) {
+			System.out.println("Rg em formato invalido");
+			return;
+		}
 		this.rg = rg;
 	}
 	
-	public long getRG() {
+	public String getRG() {
 		return rg;
 	}
 	
@@ -107,14 +125,6 @@ public class Usuario {
 	
 	public Date getDataNascimento() {
 		return dtNascimento;
-	}
-	
-	public void setToken(String token) {
-		this.token = token;
-	}
-	
-	public String getToken() {
-		return token;
 	}
 	
 	public void setPerguntaSecreta(PerguntaSecreta perguntaSecreta) {
@@ -163,6 +173,11 @@ public class Usuario {
 	}
 	
 	public boolean validaCPF(String cpf) {
+		
+		if(!cpf.matches("\\d{3}.\\d{3}.\\d{3}-\\d{2}")) {
+			System.out.println("Forma de Cpf invalido");
+			return false;
+		}
 
 			      int conta = 0;
 			      int conta2 = 0;
@@ -217,6 +232,21 @@ public class Usuario {
 			    	  return true;
 			      }
 			    
-			   }		
+			   }
+	
+		public boolean verificaRg(String rg) {
+				if(email.matches("\\d{2}.\\d{3}.\\d{3}-\\d{1}")) {
+					return true;
+				}else {
+					return false;
+				}
+		}
+
+		public String generateToken() {
+			 UUID uuid = UUID.randomUUID();
+		        String randomUUIDString = uuid.toString();
+		 
+		        return randomUUIDString;
+		}
 	}
 

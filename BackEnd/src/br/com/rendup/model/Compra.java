@@ -1,4 +1,4 @@
-package br.com.fiap.beans;
+package br.com.rendup.model;
 
 import java.util.Date;
 
@@ -72,3 +72,4 @@ public class Compra {
 		return plano;
 	}
 }
+

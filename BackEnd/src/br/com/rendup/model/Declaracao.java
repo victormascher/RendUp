@@ -1,4 +1,5 @@
-package br.com.fiap.beans;
+package br.com.rendup.model;
+
 import java.util.Date;
 
 public class Declaracao {
@@ -7,25 +8,28 @@ public class Declaracao {
 	private Date dtResposta = new Date();
 	private Usuario usuario;
 	private String respostas;
+	private String hsPergunta;
 
 	public Declaracao() {}
 	
-	public Declaracao(int idDeclaracao, Date dtResposta, Usuario usuario, String respostas) {
-		setAll(idDeclaracao, dtResposta, usuario, respostas);
+	public Declaracao(int idDeclaracao, Date dtResposta, Usuario usuario, String respostas, String hsPergunta) {
+		setAll(idDeclaracao, dtResposta, usuario, respostas, hsPergunta);
 	}
 	
-	public void setAll(int idDeclaracao, Date dtResposta, Usuario usuario, String respostas) {
+	public void setAll(int idDeclaracao, Date dtResposta, Usuario usuario, String respostas, String hsPergunta) {
 		setIdDeclaracao(idDeclaracao);
 		setDataResposta(dtResposta);
 		setUsuario(usuario);
 		setResposta(respostas);
+		setHsPergunta(hsPergunta);
 	}
 	
 	public String getAll() {
 		return "O ID da sua declaração é: " + idDeclaracao + "\n" +
 				"Data da resposta: " + dtResposta + "\n" +
 				"Usuário:" + usuario + "\n" +
-				"Respostas:" + respostas;
+				"Respostas:" + respostas + "\n" +
+				"Hash da Pergunta : " + hsPergunta;
 	}
 	
 	public void setIdDeclaracao(int idDeclaracao) {
@@ -60,5 +64,12 @@ public class Declaracao {
 		return respostas;
 	}
 	
+	public void setHsPergunta(String hsPergunta) {
+		this.hsPergunta = hsPergunta;
+	}
+	
+	public String getHsPergunta() {
+		return hsPergunta;
+	}
 
 }
