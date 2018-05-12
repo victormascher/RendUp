@@ -1,22 +1,20 @@
 package br.com.rendup.model;
 
-import java.util.Date;
-
 public class Compra {
 	
 	private int idCompra;
-	private Date dtCompra = new Date();
+	private String dtCompra;
 	private boolean status;
 	private Usuario usuario;
 	private Planos plano;
 	
 	public Compra() {}
 	
-	public Compra(int idCompra, Date dtCompra, boolean status, Usuario usuario, Planos plano) {
+	public Compra(int idCompra, String dtCompra, boolean status, Usuario usuario, Planos plano) {
 		setAll(idCompra, dtCompra, status, usuario, plano);
 	}
 	
-	public void setAll(int idCompra, Date dtCompra, boolean status, Usuario usuario, Planos plano) {
+	public void setAll(int idCompra, String dtCompra, boolean status, Usuario usuario, Planos plano) {
 		setIdCompra(idCompra) ;
 		setDataCompra(dtCompra); 
 		setStatus(status);
@@ -40,11 +38,11 @@ public class Compra {
 		return idCompra;
 	}
 	
-	public void setDataCompra(Date dtCompra) {
+	public void setDataCompra(String dtCompra) {
 		this.dtCompra = dtCompra;
 	}
 	
-	public Date getDataCompra() {
+	public String getDataCompra() {
 		return dtCompra;
 	}
 
