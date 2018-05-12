@@ -1,5 +1,4 @@
 package br.com.rendup.model;
-import java.util.Date;
 import java.util.UUID;
 
 public class Usuario {
@@ -10,18 +9,18 @@ public class Usuario {
 	private String senha;
 	private String cpf;
 	private String rg;
-	private Date dtNascimento = new Date();
+	private String dtNascimento;
 	private PerguntaSecreta perguntaSecreta;
 	private String respostaSecreta;
 	long guardaCPF[] = new long[11];
 	
 	public Usuario() {}
 	
-	public Usuario(String idUser, String nome, String email, String senha, String cpf, String rg, Date dtNascimento, PerguntaSecreta perguntaSecreta, String respostaSecreta) {
+	public Usuario(String idUser, String nome, String email, String senha, String cpf, String rg, String dtNascimento, PerguntaSecreta perguntaSecreta, String respostaSecreta) {
 		setAll(idUser, nome, email, senha, cpf, rg, dtNascimento, perguntaSecreta, respostaSecreta);
 	}
 	
-	public void setAll(String idUser, String nome, String email, String senha, String cpf, String rg, Date dtNascimento, PerguntaSecreta perguntaSecreta, String respostaSecreta) {
+	public void setAll(String idUser, String nome, String email, String senha, String cpf, String rg, String dtNascimento, PerguntaSecreta perguntaSecreta, String respostaSecreta) {
 		setIdUser(idUser);
 		setNome(nome);
 		setEmail(email);
@@ -46,10 +45,10 @@ public class Usuario {
 	}
 	
 	public void setIdUser(String idUser) {
-		if(idUser != "" ) {
+		if(idUser == "" ) {
+			return;
+		} else {
 			this.idUser = idUser;			
-		}else {
-			System.out.println("Id invalido");
 		}
 	}
 	
@@ -58,10 +57,10 @@ public class Usuario {
 	}
 	
 	public void setNome(String nome) {
-		if(nome != "") {
+		if(nome == "") {
+			return;
+		} else {
 			this.nome = nome.toUpperCase();			
-		}else {
-			System.out.println("Nome invalido");
 		}
 	}
 
@@ -71,11 +70,10 @@ public class Usuario {
 
 	public void setEmail(String email) {
 		if(verificaEmail(email) != true) {
-			System.out.println("Email invalido");
 			return;
-		}
+		} else {
 		this.email = email.toLowerCase();
-	
+		}
 	}
 	
 	public String getEmail() {
@@ -83,9 +81,7 @@ public class Usuario {
 	}
 	
 	public void setSenha(String senha) {
-		if(verificaSenha(senha) == false) {
-			System.out.println("Senha deve conter de 8 a 16 digitos com no minimo um caracter"
-					+ "especial, letra maiucula e numero");
+		if(verificaSenha(senha) != true) {
 			return;
 		}		
 		this.senha = senha;
@@ -96,8 +92,8 @@ public class Usuario {
 	}
 	
 	public void setCPF(String cpf) {
-		if(validaCPF(cpf) == false) {
-			System.out.println("Cpf inválido");
+		if(validaCPF(cpf) != true) {
+			this.cpf = "99999999999";
 			return;
 		}
 		this.cpf = cpf;
@@ -109,8 +105,7 @@ public class Usuario {
 	
 	public void setRG(String rg) {
 		if(verificaRg(rg) != true) {
-			System.out.println("Rg em formato invalido");
-			return;
+			this.rg = "999999999";
 		}
 		this.rg = rg;
 	}
@@ -119,11 +114,11 @@ public class Usuario {
 		return rg;
 	}
 	
-	public void setDataNascimento(Date dtNascimento) {
+	public void setDataNascimento(String dtNascimento) {
 		this.dtNascimento = dtNascimento;
 	}
 	
-	public Date getDataNascimento() {
+	public String getDataNascimento() {
 		return dtNascimento;
 	}
 	

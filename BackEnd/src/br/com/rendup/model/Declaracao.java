@@ -1,22 +1,20 @@
 package br.com.rendup.model;
 
-import java.util.Date;
-
 public class Declaracao {
 	
 	private int idDeclaracao;
-	private Date dtResposta = new Date();
+	private String dtResposta;
 	private Usuario usuario;
 	private String respostas;
 	private String hsPergunta;
 
 	public Declaracao() {}
 	
-	public Declaracao(int idDeclaracao, Date dtResposta, Usuario usuario, String respostas, String hsPergunta) {
+	public Declaracao(int idDeclaracao, String dtResposta, Usuario usuario, String respostas, String hsPergunta) {
 		setAll(idDeclaracao, dtResposta, usuario, respostas, hsPergunta);
 	}
 	
-	public void setAll(int idDeclaracao, Date dtResposta, Usuario usuario, String respostas, String hsPergunta) {
+	public void setAll(int idDeclaracao, String dtResposta, Usuario usuario, String respostas, String hsPergunta) {
 		setIdDeclaracao(idDeclaracao);
 		setDataResposta(dtResposta);
 		setUsuario(usuario);
@@ -40,11 +38,11 @@ public class Declaracao {
 		return idDeclaracao;
 	}
 	
-	public void setDataResposta(Date dtResposta) {
+	public void setDataResposta(String dtResposta) {
 		this.dtResposta = dtResposta;
 	}
 	
-	public Date getDataResposta() {
+	public String getDataResposta() {
 		return dtResposta;
 	}
 	

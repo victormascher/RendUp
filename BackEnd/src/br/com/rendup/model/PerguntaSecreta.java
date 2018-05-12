@@ -2,18 +2,18 @@ package br.com.rendup.model;
 
 public class PerguntaSecreta {
 	
-	private int id_pergunta;
+	private int idPergunta;
 	private String pergunta;
 	
 
 	public PerguntaSecreta() {}
 	
-	public PerguntaSecreta(int id_pergunta, String pergunta){
-		setAll(id_pergunta, pergunta);
+	public PerguntaSecreta(int idPergunta, String pergunta){
+		setAll(idPergunta, pergunta);
 	}
 
-	public void setAll(int id_pergunta, String pergunta) {
-		setIdPergunta(id_pergunta);
+	public void setAll(int idPergunta, String pergunta) {
+		setIdPergunta(idPergunta);
 		setQuestao(pergunta);
 	}
 	
@@ -21,12 +21,12 @@ public class PerguntaSecreta {
 		return "Pergunta de Segurança: " + pergunta;
 	}
 	
-	public void setIdPergunta(int id_pergunta) {
-		this.id_pergunta = id_pergunta;
+	public void setIdPergunta(int idPergunta) {
+		this.idPergunta = idPergunta;
 	}
 	
 	public int getIdPergunta() {
-		return id_pergunta;
+		return idPergunta;
 	}
 	
 	public void setQuestao(String pergunta) {
